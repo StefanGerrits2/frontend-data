@@ -7,17 +7,22 @@ body {
 
 circle {
     fill-opacity: 0.7;
+    cursor: pointer;
 }
 
 svg {
     font-size: 11px;
     font-family: sans-serif;
     text-anchor: middle;
-    margin-top: -10em;
+}
+
+body {
+    height: 100%;
 }
 
 text {
     fill: white;
+    cursor: pointer;
 }
 
 .legend__container {
@@ -32,22 +37,10 @@ p {
     font-weight: 600;
 }
 
-.color1 {
-    color: #E26668;
+.startHover {
+    opacity: 0.5;
 }
 
-.color2 {
-    color: #62A0CA;
-}
-
-.color3 {
-    color: #F6A35A;
-}
-
-.color4 {
-    color: #6BB96B;
-}
-
-.color5 {
-    color: #B293C4;
+.leaveHover {
+    opacity: 1;
 }

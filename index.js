@@ -21,6 +21,7 @@ const query = `
     } 
     LIMIT 100
     `
+
 const url = "https://api.data.netwerkdigitaalerfgoed.nl/datasets/ivo/NMVW/services/NMVW-03/sparql";
 
 runQuery(url, query) // Run function to fetch data
@@ -36,3 +37,10 @@ async function runQuery(url, query){
     let json = await response.json(); // When the data is obtained, change it to JSON
     return json.results.bindings; // Return data.bindings
 }
+
+let test = () => {
+    console.log('test')
+}
+
+let button = document.getElementById('button')
+button.addEventListener('click', test)

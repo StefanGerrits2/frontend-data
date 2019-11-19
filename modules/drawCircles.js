@@ -14,19 +14,32 @@ export default function drawCircles(data) {
             .sum(d => d.categoryAmount));
 
     const root = pack(data);
+
+    function onHover() {
+        d3.select(this).attr('class', 'startHover')
+    }
+
+    function onLeave() {
+        d3.select(this).attr('class', 'leaveHover')
+    }
+
     // Select svg
     const svg = d3.selectAll('svg')
-        .attr('viewBox', [0, 0, width, height]);
+        .attr('viewBox', [0, 0, width, height])
+        .call(d3.zoom().scaleExtent([1 / 8, 24]).on('zoom', onzoom))
+        .append('g')
+
     // Create parent element for the circles and text
     const leaf = svg.selectAll('g')
         .data(root.leaves())
         .enter()
         .append('g')
-        .attr('transform', d => `translate(${d.x + 1},${d.y + 1})`);
+        .attr('transform', d => `translate(${d.x + 1},${d.y + 1})`)
     // Create bubbles
     leaf.append('circle')
-        .attr('id', d => d.id)
         .attr('r', d => d.r)
+        .on('mouseenter', onHover)
+        .on('mouseout', onLeave)
     // Assign colors
         .attr('fill', d => color(d.data.upperCategory));
     leaf.append('text')
@@ -37,7 +50,11 @@ export default function drawCircles(data) {
         .text(d => d.data.categoryName);
     // Add hover effect with data
     leaf.append('title')
-        .text(d => `${d.data.categoryName}\n${format(d.data.categoryAmount)}`);
+        .text(d => `${d.data.categoryName}\n${format(d.data.categoryAmount)}\nCategorie: ${d.data.upperCategory}`);
+
+    function onzoom() {
+        svg.attr('transform', d3.event.transform);
+    }
         
     return svg.node();
 }

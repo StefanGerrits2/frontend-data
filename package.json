@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/StefanGerrits2/frontend-data/issues"
   },
-  "homepage": "https://github.com/StefanGerrits2/frontend-data#readme"
+  "homepage": "https://github.com/StefanGerrits2/frontend-data#readme",
+  "dependencies": {
+    "eslint": "^6.6.0"
+  }
 }

@@ -19,7 +19,8 @@ export default function drawCircles(data) {
     const svg = d3.selectAll('svg')
         .attr('viewBox', [0, 0, width, height])
         .call(d3.zoom().scaleExtent([1 / 8, 24]).on('zoom', onzoom))
-        .append('g');
+        .append('g')
+        .attr('class', 'circle__container');
 
     // Create parent element for the circles and text
     const leaf = svg.selectAll('g')
@@ -49,22 +50,40 @@ export default function drawCircles(data) {
 
     // Zoom function
     function onzoom() {
-        svg.attr('transform', d3.event.transform)
+        svg.attr('transform', d3.event.transform);
     }
 
+    // Get unique upperCategories
+    function uniqueUpperCategories(data) {
+        let arr = [];
+        for (let key in data) {
+            arr.push(data[key].upperCategory);
+        }
+        // https://stackoverflow.com/questions/9229645/remove-duplicate-values-from-js-array
+        let uniqueArray = arr.filter(function(item, pos) {
+            return arr.indexOf(item) == pos;
+        });
+        return uniqueArray;
+    };
+
+    // Save array in a const
+    const legendData = uniqueUpperCategories(data);
+
     // Add legend
-    const legend = svg.selectAll('.legend')
-        .data(data)
+    const legendContainer = d3.selectAll('svg')
+        .append('g')
+        .attr('class', 'legend__container');
+
+    const legend = legendContainer.selectAll('legend__container')
+        .data(legendData)
         .enter()
         .append('g');
-    
+
     legend.append('text')
-        .attr('fill', function(d){return color(d.upperCategory);})
-        .attr('y', function(d, i){return 32+20*i;})
-        .attr('x', -90)
-        .text(function (d) {
-            return d.upperCategory;
-        });
+        .attr('fill', d => {return color(d);})
+        .attr('y', function(d, i){return 32+28*i;})
+        .attr('x', 150)
+        .text(d => {return d;});
         
     return svg.node();
 }

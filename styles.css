@@ -49,6 +49,10 @@ g:hover > circle {
     stroke-width: 3;
 }
 
+.svg__container {
+    background-color: #363636;
+}
+
 /* legend */
 
 .legend__container g text  {

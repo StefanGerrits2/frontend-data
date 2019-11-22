@@ -39,7 +39,7 @@ async function runQuery(url, query){
 }
 
 let test = () => {
-    console.log('test')
+    console.log('clicked!')
 }
 
 let button = document.getElementById('button')

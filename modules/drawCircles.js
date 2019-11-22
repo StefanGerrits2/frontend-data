@@ -16,14 +16,14 @@ export default function drawCircles(data) {
     const root = pack(data);
 
     // Select svg
-    const svg = d3.selectAll('svg')
+    let svg = d3.selectAll('svg')
         .attr('viewBox', [0, 0, width, height])
         .call(d3.zoom().scaleExtent([1 / 8, 24]).on('zoom', onzoom))
         .append('g')
         .attr('class', 'circle__container');
 
     // Create parent element for the circles and text
-    const leaf = svg.selectAll('g')
+    let leaf = svg.selectAll('g')
         .data(root.leaves())
         .enter()
         .append('g')
@@ -34,7 +34,7 @@ export default function drawCircles(data) {
         .attr('r', d => d.r)
     // Assign colors
         .attr('fill', d => color(d.data.upperCategory));
-    
+        
     // Create text
     leaf.append('text')
         .attr('x', 0)
@@ -83,7 +83,23 @@ export default function drawCircles(data) {
         .attr('fill', d => {return color(d);})
         .attr('y', function(d, i){return 32+28*i;})
         .attr('x', 150)
-        .text(d => {return d;});
-        
+        .text(d => {return d;})
+        // Filter when clicked on an upperCategory
+        .on('click', d => {filterUpperCategory(d);});
+
+    // Get new filtered data
+    let newData = [];
+
+    function filterUpperCategory(d) {
+        let mappedData = data.map(item => item);
+        let filterData = mappedData.filter(item => {
+            if (item.upperCategory === d) {
+                return item;
+            }
+        });
+        newData = filterData;
+        console.log(newData);
+    };
+
     return svg.node();
 }

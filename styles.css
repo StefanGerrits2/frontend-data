@@ -44,7 +44,7 @@ p {
     font-weight: 600;
 }
 
-g:hover > circle {
+circle:hover {
     stroke: black;
     stroke-width: 3;
 }

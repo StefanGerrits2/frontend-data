@@ -1,6 +1,6 @@
 import cleanData from './modules/cleanData.js'
 import fixCategory from './modules/fixCategory.js'
-import drawCircles from './modules/drawCircles.js'
+import drawCircles2 from './modules/drawCircles2.js'
 
 const query = `
     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -29,7 +29,7 @@ runQuery(url, query) // Run function to fetch data
     .then(cleanedData => fixCategory(cleanedData))
     .then(finalData => {
         console.log(finalData)
-        drawCircles(finalData)
+        drawCircles2(finalData)
     })
 
 async function runQuery(url, query){

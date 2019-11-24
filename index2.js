@@ -23,14 +23,15 @@ runQuery(url, query) // Run function to fetch data
     .then(cleanedData => fixCategory(cleanedData))
     .then(data => {
         console.log(data)
+        // I used this example for my following code: https://observablehq.com/@d3/bubble-chart
         const width = '1400';
-        const height = '700';
+        const height = '450';
         // Give each different category their own color
         const color = d3.scaleOrdinal(data.map(d => d.upperCategory), d3.schemeCategory10);
 
         // Select svg
         let svg = d3.select('svg')
-            .attr('viewBox', [0, 0, width, height]) 
+            .attr('viewBox', [0, 0, width, height])
 
         const render = (svg, data) => {
               // Set standards
@@ -47,13 +48,14 @@ runQuery(url, query) // Run function to fetch data
             // Create circles
             circles
                 .enter()
-                .append('circle')
-                .attr('transform', d => `translate(${d.x + 1},${d.y + 1})`)
-
-            // Merge attributes which can be updated later
-            .merge(circles)
-                .attr('r', d => d.r)
-                .attr('fill', d => color(d.data.upperCategory))
+                    .append('circle')
+                    .attr('transform', d => `translate(${d.x + 1},${d.y + 1})`)
+                    .attr('r', 0)
+                // Merge attributes which can be updated later
+                .merge(circles)
+                .transition().duration(1500)
+                    .attr('r', d => d.r)
+                    .attr('fill', d => color(d.data.upperCategory))
 
             // Exit and remove unused DOM elements
             circles
@@ -106,12 +108,12 @@ runQuery(url, query) // Run function to fetch data
 
         render(svg, data);
 
-        function test () {
-            console.log('test')
+        function reset () {
+            render(svg, data)
         }
 
         let button = document.getElementById('button')
-        button.addEventListener('click', test)
+        button.addEventListener('click', reset)
     })
 
 

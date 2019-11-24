@@ -23,10 +23,8 @@ runQuery(url, query) // Run function to fetch data
     .then(cleanedData => fixCategory(cleanedData))
     .then(data => {
         console.log(data)
-
         const width = '1400';
         const height = '700';
-        const format = d3.format(',d');
         // Give each different category their own color
         const color = d3.scaleOrdinal(data.map(d => d.upperCategory), d3.schemeCategory10);
 
@@ -62,49 +60,49 @@ runQuery(url, query) // Run function to fetch data
                 .exit().remove()
         }
 
-        // Get unique upperCategories
-    function uniqueUpperCategories(data) {
-        let arr = [];
-        for (let key in data) {
-            arr.push(data[key].upperCategory);
-        }
-        // https://stackoverflow.com/questions/9229645/remove-duplicate-values-from-js-array
-        let uniqueArray = arr.filter(function(item, pos) {
-            return arr.indexOf(item) == pos;
-        });
-        return uniqueArray;
-    };
-
-    // Save array in a const
-    const legendData = uniqueUpperCategories(data);
-
-    // Add legend
-    const legendContainer = d3.selectAll('svg')
-        .append('g')
-        .attr('class', 'legend__container');
-
-    const legend = legendContainer.selectAll('legend__container')
-        .data(legendData)
-        .enter()
-        .append('g');
-
-    legend.append('text')
-        .attr('fill', d => {return color(d);})
-        .attr('y', function(d, i){return 32+28*i;})
-        .attr('x', 150)
-        .text(d => {return d;})
-        // Filter when clicked on an upperCategory
-        .on('click', d => {filterUpperCategory(d);});
-
-    function filterUpperCategory(d) {
-        let mappedData = data.map(item => item);
-        let filterData = mappedData.filter(item => {
-            if (item.upperCategory === d) {
-                return item;
+            // Get unique upperCategories
+        function uniqueUpperCategories(data) {
+            let arr = [];
+            for (let key in data) {
+                arr.push(data[key].upperCategory);
             }
-        });
-        render(svg, filterData)
-    };
+            // https://stackoverflow.com/questions/9229645/remove-duplicate-values-from-js-array
+            let uniqueArray = arr.filter(function(item, pos) {
+                return arr.indexOf(item) == pos;
+            });
+            return uniqueArray;
+        };
+
+        // Save array in a const
+        const legendData = uniqueUpperCategories(data);
+
+        // Add legend
+        const legendContainer = d3.selectAll('svg')
+            .append('g')
+            .attr('class', 'legend__container');
+
+        const legend = legendContainer.selectAll('legend__container')
+            .data(legendData)
+            .enter()
+            .append('g');
+
+        legend.append('text')
+            .attr('fill', d => {return color(d);})
+            .attr('y', function(d, i){return 32+28*i;})
+            .attr('x', 150)
+            .text(d => {return d;})
+            // Filter when clicked on an upperCategory
+            .on('click', d => {filterUpperCategory(d);});
+
+        function filterUpperCategory(d) {
+            let mappedData = data.map(item => item);
+            let filterData = mappedData.filter(item => {
+                if (item.upperCategory === d) {
+                    return item;
+                }
+            });
+            render(svg, filterData)
+        };
 
         render(svg, data);
 

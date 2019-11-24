@@ -38,8 +38,8 @@ runQuery(url, query) // Run function to fetch data
             const pack = data => d3.pack()
                 .size([width - 2, height - 2])
                 .padding(3)
-            (d3.hierarchy({children: data})
-                .sum(d => d.categoryAmount));
+                (d3.hierarchy({children: data})
+                    .sum(d => d.categoryAmount));
 
             const root = pack(data);
     

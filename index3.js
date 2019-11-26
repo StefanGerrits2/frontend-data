@@ -7,16 +7,18 @@ const query = `
     PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     PREFIX edm: <http://www.europeana.eu/schemas/edm/>
     PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
     SELECT ?categoryName (COUNT(?category) AS ?categoryAmount) ?upperCategory
+
     WHERE {
-    <https://hdl.handle.net/20.500.11840/termmaster2704> skos:narrower* ?category .
-    ?category skos:prefLabel ?categoryName .
-    ?obj edm:isRelatedTo ?category .
-    ?category skos:broader ?categoryGroup .
-    ?categoryGroup skos:prefLabel ?upperCategory .
+        <https://hdl.handle.net/20.500.11840/termmaster2704> skos:narrower* ?category .
+        ?category skos:prefLabel ?categoryName .
+        ?obj edm:isRelatedTo ?category .
+        ?category skos:broader ?categoryGroup .
+        ?categoryGroup skos:prefLabel ?upperCategory .
     } 
-    LIMIT 100
-    `
+
+    LIMIT 100`
 const url = "https://api.data.netwerkdigitaalerfgoed.nl/datasets/ivo/NMVW/services/NMVW-03/sparql";
 runQuery(url, query) // Run function to fetch data
     .then(myRawResults => cleanData(myRawResults)) // When data is obtained, pass data into a new function
@@ -25,10 +27,11 @@ runQuery(url, query) // Run function to fetch data
 
         // Tutorial I followed for my update pattern: https://www.youtube.com/watch?v=IyIAR65G-GQ
         // I used this example for my following code: https://observablehq.com/@d3/bubble-chart
-
+        
         console.log(data)
         const width = '1400';
-        const height = '550';
+        const height = '500';
+        const format = d3.format(',d');
         // Give each different category their own color
         const color = d3.scaleOrdinal(data.map(d => d.upperCategory), d3.schemeCategory10);
 
@@ -45,28 +48,56 @@ runQuery(url, query) // Run function to fetch data
                     .sum(d => d.categoryAmount));
 
             const root = pack(data);
-    
-            const circles = svg.selectAll('circle').data(root.leaves());
-            // Create circles
-            circles
-                .enter()
-                    .append('circle')
-                    .attr('transform', d => `translate(${d.x + 1},${d.y + 1})`)
-                    .attr('r', 0)
-                // Merge attributes which can be updated later
-                .merge(circles)
-                    .transition().duration(1500)
+            
+            // Create Groups for circles and text
+            const container = svg.selectAll('.circle__container')
+            
+            // Give data to all groups 
+            const groups = container.selectAll('g')
+                .data(root.leaves())
+
+            // Assign groups if there are not enough DOM elements available
+            const groupsEnter = groups.enter().append('g');
+
+            // Set position
+            groupsEnter
+                .merge(groups)
+                    .attr('transform', d => `translate(${d.x + 1},${d.y + 1})`);
+
+            // Add circles
+            groupsEnter
+                .append('circle')
+                .attr('r', 0)
+                // Merge attributes which will be updated
+                .merge(groups.select('circle'))
+                    .transition().duration(1000)
                         .attr('r', d => d.r)
                         .attr('fill', d => color(d.data.upperCategory))
+
+            // Add hover information
+            groupsEnter
+                .append('title')
+                .merge(groups.select('title'))
+                    .text(d => `${d.data.categoryName}\nAantal objecten: ${format(d.data.categoryAmount)}\nCategorie: ${d.data.upperCategory}`)
+
             // Exit and remove unused DOM elements
-            circles
-                .exit()
-                .transition().duration(1500)
-                .attr('r', 0)
-                .remove()
+            groups.exit().remove()
+
+            // Add text
+            groupsEnter.append('text')
+                .attr('font-size', '0')
+                .attr('x', 0)
+                .attr('y', 0)
+                // Merge attributes which can be updated later
+                .merge(groups.select('text'))
+                    .transition().duration(1000)
+                    .text(d => d.data.categoryName)
+                    .attr('fill', 'white')
+                    .attr('font-size', '11')
+                    .attr('display', d => {return d.r <= 25 ? 'none' : 'flex';});
         }
 
-            // Get unique upperCategories
+        // Get unique upperCategories
         function uniqueUpperCategories(data) {
             let arr = [];
             for (let key in data) {

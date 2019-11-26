@@ -29,9 +29,7 @@ export default function drawCircles(data) {
         .append('g')
         .attr('transform', d => `translate(${d.x + 1},${d.y + 1})`);
 
-    
-
-    group.exit().remove()
+    group.exit().remove();
 
     // Create bubbles
     group.append('circle')

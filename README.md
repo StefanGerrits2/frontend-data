@@ -15,6 +15,8 @@ Description here
 ## d3 updating data
 Info about updating data here
 
+* I used [this tutorial](https://www.youtube.com/watch?v=IyIAR65G-GQ&t=3237s)
+
 ## d3 experiments
 Info about my experiments here
 

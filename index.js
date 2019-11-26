@@ -40,7 +40,7 @@ function runMainFunction(mainCategory) {
             console.log(data)
 
             const width = '1400';
-            const height = '450';
+            const height = '500';
             const format = d3.format(',d');
             // Give each different category their own color
             const color = d3.scaleOrdinal(data.map(d => d.upperCategory), d3.schemeCategory10);
@@ -52,7 +52,7 @@ function runMainFunction(mainCategory) {
             const render = (svg, data) => {
                 // Set standards
                 const pack = data => d3.pack()
-                    .size([width - 2, height - 2])
+                    .size([width, height])
                     .padding(3)
                     (d3.hierarchy({children: data})
                         .sum(d => d.categoryAmount));
@@ -112,12 +112,11 @@ function runMainFunction(mainCategory) {
 
             // Add legend
             const legendContainer = d3.selectAll('.legend__container')
-
             const legendLabels = legendContainer.selectAll('text').data(legendData)
 
             legendLabels.enter().append('text')
                 // Filter when clicked on an upperCategory
-                .attr('y', function(d, i){return 32+28*i;})
+                .attr('y', function(d, i){return 25+25*i;})
                 .attr('x', 150)
             .merge(legendLabels)
                 // Things that can update

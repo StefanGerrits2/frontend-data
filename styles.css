@@ -50,21 +50,25 @@ circle:hover {
 }
 
 .svg__container {
-    background-color: #363636;
+    margin-top: -1em;
 }
 
 /* legend */
+.legend__container text  {
+    font-size: 13px;
+}
 
-.legend__container g text  {
-    font-size: 15px;
+.legend__container text:hover  {
+    opacity: 0.75;
 }
 
 .button__container {
     margin-top: .5em;
-    display: flex;
-    align-items: center;
+    margin-left: 75%;
+    position: absolute;
 }
 
+/* Reset button */
 #resetButton {
 	box-shadow: inset 0px 1px 0px 0px #ffffff;
 	background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
@@ -85,15 +89,12 @@ circle:hover {
 	background: linear-gradient(to bottom, #d1d1d1 50%, #ffffff 100%);
 	background-color:#f6f6f6;
 }
-#resetButton:active {
-	position: relative;
-    top: 1px;
-}
 
 #resetButton:focus {
     outline: none;
 }
 
+/* Radio buttons for main categories*/
 .radio-buttons__container {
     margin-bottom: 1em;
 }
@@ -106,7 +107,6 @@ circle:hover {
 }
 
 .radio-buttons__container label {
-    display: inline-block;
     background: linear-gradient(to bottom, #d1d1d1 50%, #ffffff 100%);
     padding: 10px 20px;
     font-size: 12px;

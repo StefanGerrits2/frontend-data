@@ -10,13 +10,13 @@
 </head>
 <body>
     <h2>Collectie van alle hoofdcategorieën en subcategorieën</h2>
-    <h3>Selecteer een hoofdcategorie</h3>
+    <h4>Selecteer een hoofdcategorie</h4>
     <form class="radio-buttons__container">
         <input type="radio" name="mainCategory" value="2704" id="clothes" checked="checked">
         <label for="clothes">Kleding en persoonlijke versiering</label>
 
-        <input type="radio" name="mainCategory" value="2809" id="weapons">
-        <label for="weapons">Wapens</label>
+        <input type="radio" name="mainCategory" value="2803" id="fish">
+        <label for="fish">Jacht, visserij en voedselvergaring</label>
 
         <input type="radio" name="mainCategory" value="2624" id="traffic">
         <label for="traffic">Vervoer</label>
@@ -25,15 +25,15 @@
         <label for="art">Kunst</label>
     </form>
 
+    <h4>Selecteer een subcategorie</h4>
+    <div class="button__container">
+        <button id="resetButton">Reset</button>
+    </div>
     <div class="svg__container">
         <svg>
             <g class="legend__container"></g>
             <g class="circle__container"></g>
         </svg>
-    </div>
-
-    <div class="button__container">
-        <button id="resetButton">Reset</button>
     </div>
 
     <script type="module" src="./index.js"></script>

@@ -5,8 +5,8 @@ export default function drawVisualisation(data) {
     console.log(data);
 
     // Set standards
-    const width = '1400';
-    const height = '500';
+    const width = 1400;
+    const height = 500;
             
     // Give each different category their own color
     const color = d3.scaleOrdinal(data.map(d => d.upperCategory), d3.schemeCategory10);
@@ -15,7 +15,7 @@ export default function drawVisualisation(data) {
     let svg = d3.select('svg')
         .attr('viewBox', [0, 0, width, height]);
 
-    const render = (svg, data) => {
+    function render(svg, data) {
         // Set position and size of bubbles
         const pack = data => d3.pack()
             .size([width, height])
@@ -24,7 +24,7 @@ export default function drawVisualisation(data) {
                 .sum(d => d.categoryAmount));
 
         const root = pack(data);
-                
+        
         // Create Groups for circles and text
         const container = svg.selectAll('.circle__container');
                 
@@ -71,7 +71,7 @@ export default function drawVisualisation(data) {
             .transition().duration(1000)
             .text(d => d.data.categoryName)
             .attr('fill', 'white')
-            .attr('font-size', '11')
+            .attr('font-size', '9')
             .attr('display', d => {return d.r <= 25 ? 'none' : 'flex';});
 
         // Exit and remove unused DOM elements
@@ -88,7 +88,7 @@ export default function drawVisualisation(data) {
     // Add text to legend
     legendLabels.enter().append('text')
         // Set values which won't change when updated
-        .attr('y', function(d, i){return 25+25*i;})
+        .attr('y', (d, i) => {return 25+25*i;})
         .attr('x', 150)
         // Enter and update
         .merge(legendLabels)
@@ -106,7 +106,7 @@ export default function drawVisualisation(data) {
             arr.push(data[key].upperCategory);
         }
         // Source used for this filter function: https://stackoverflow.com/questions/9229645/remove-duplicate-values-from-js-array
-        let uniqueArray = arr.filter(function(item, pos) {
+        let uniqueArray = arr.filter((item, pos) => {
             return arr.indexOf(item) == pos;
         });
         return uniqueArray;

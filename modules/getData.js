@@ -18,7 +18,9 @@ const query2 = `> skos:narrower* ?category .
         ?obj edm:isRelatedTo ?category .
         ?category skos:broader ?categoryGroup .
         ?categoryGroup skos:prefLabel ?upperCategory .
-    } 
+    }
+    
+    ORDER BY DESC(?categoryAmount) 
 
     LIMIT 100
 `;

@@ -1,3 +1,4 @@
+/* Body */
 body {
     margin-left: 2em;
     font-family: sans-serif;
@@ -5,12 +6,19 @@ body {
     color: white;
 }
 
-circle {
-    fill-opacity: 0.7;
+/* Titles */
+.main__title, .main-category__title {
+    text-align: center;
 }
 
-circle:active {
-    cursor: grabbing;
+.filter__title {
+    margin-left: 2em;
+    margin-top: 1em;
+}
+
+/* SVG elements */
+.svg__container {
+    margin-top: -1em;
 }
 
 svg {
@@ -19,29 +27,8 @@ svg {
     text-anchor: middle;
 }
 
-text {
-    cursor: pointer;
-    text-anchor: middle;
-}
-
-svg:active {
-    cursor: grabbing;
-}
-
-body {
-    height: 100%;
-}
-
-.legend__container {
-    border: 1px solid white;
-    width: 18.5em;
-    padding-left: 1em;
-}
-
-p {
-    font-size: .9em;
-    line-height: .75em;
-    font-weight: 600;
+circle {
+    fill-opacity: 0.7;
 }
 
 circle:hover {
@@ -49,54 +36,21 @@ circle:hover {
     stroke-width: 3;
 }
 
-.svg__container {
-    margin-top: -1em;
-}
-
-/* legend */
+/* Legend */
 .legend__container text  {
     font-size: 13px;
+    left: 0;
 }
 
 .legend__container text:hover  {
     opacity: 0.75;
-}
-
-.button__container {
-    margin-top: .5em;
-    margin-left: 75%;
-    position: absolute;
-}
-
-/* Reset button */
-#resetButton {
-	box-shadow: inset 0px 1px 0px 0px #ffffff;
-	background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
-	background-color:#ffffff;
-	border-radius: 42px;
-	border: 1px solid #dcdcdc;
-	display: inline-block;
-	cursor: pointer;
-	color: #666666;
-	font-family: Arial;
-	font-size: 15px;
-	font-weight: bold;
-	padding: 11px 36px;
-	text-decoration: none;
-    margin: auto;
-}
-#resetButton:hover {
-	background: linear-gradient(to bottom, #d1d1d1 50%, #ffffff 100%);
-	background-color:#f6f6f6;
-}
-
-#resetButton:focus {
-    outline: none;
+    cursor: pointer;
 }
 
 /* Radio buttons for main categories*/
 .radio-buttons__container {
     margin-bottom: 1em;
+    text-align: center;
 }
 
 /* used source code for this: https://markheath.net/post/customize-radio-button-css*/
@@ -107,18 +61,47 @@ circle:hover {
 }
 
 .radio-buttons__container label {
-    background: linear-gradient(to bottom, #d1d1d1 50%, #ffffff 100%);
+    background: #292929;
     padding: 10px 20px;
     font-size: 12px;
-    border-radius: 4px;
-    color: black;
-    border-radius: 42px;
+    color: white;
+    border-radius: 10px;
+    border: 2px solid white;
 }
 
 .radio-buttons__container label:hover {
-    cursor: pointer
+    cursor: pointer;
+    border-radius: 50px;
 }
 
 .radio-buttons__container input[type='radio']:checked + label {
-    color: rgb(32, 191, 0);
+    background: rgb(17, 99, 0);
+    border: 2px solid rgb(17, 99, 0);
+}
+
+.radio-buttons__container input[type='radio']:checked + label:hover {
+    border-radius: 10px;
+}/* Source code ends here */
+
+/* Reset button */
+#resetButton {
+    color: white;
+    text-transform: uppercase;
+    background: #292929;
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 10px;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+}
+
+#resetButton:hover {
+    color: #ff2525;
+    border-color: #ff2525;
+    border-radius: 50px;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
 }

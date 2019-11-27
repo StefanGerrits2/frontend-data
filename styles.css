@@ -12,7 +12,7 @@ body {
 }
 
 .filter__title {
-    margin-left: 2em;
+    margin-left: 3.5em;
     margin-top: 1em;
 }
 
@@ -94,7 +94,7 @@ circle:hover {
     display: inline-block;
     transition: all 0.3s ease 0s;
     position: absolute;
-    bottom: 10%;
+    bottom: 5%;
     left: 10%;
 }
 
@@ -105,3 +105,5 @@ circle:hover {
     transition: all 0.3s ease 0s;
     cursor: pointer;
 }
+
+button:focus {outline:0;}

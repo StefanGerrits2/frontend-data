@@ -4,7 +4,7 @@ import drawVisualisation from './modules/drawVisualisation.js';
 import runQuery from './modules/getData.js';
 
 // Set active main category as default
-let mainCategory = 2704;
+let mainCategory = 2657;
 
 // Run main function
 runMainFunction(mainCategory);

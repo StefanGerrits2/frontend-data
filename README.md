@@ -2,9 +2,9 @@
 
 ## Concept
 
-![concept complete](https://user-images.githubusercontent.com/45566396/69720350-b3180200-1112-11ea-88b5-66287455c871.png)
+![final concept screenshot](https://user-images.githubusercontent.com/45566396/69820130-ba1d3e00-1200-11ea-9615-92b01cea7e0f.png)
 
-![gif 6](https://user-images.githubusercontent.com/45566396/69721012-3423c900-1114-11ea-81f1-da2a8c231d97.gif)
+![finalgifff](https://user-images.githubusercontent.com/45566396/69820923-92c77080-1202-11ea-9ae4-72502fc3cbea.gif)
 
 ### Description
 
@@ -97,7 +97,7 @@ Click [here](https://github.com/StefanGerrits2/frontend-data/wiki/2.5-SparQL-que
 
 ## Sources
 
-* [MDN](https://developer.mozilla.org/nl/) - Main source for javascript code
+* [MDN](https://developer.mozilla.org/nl/) - Main source for javascript code.
 * [API](https://data.netwerkdigitaalerfgoed.nl/) - To get all the data I needed.
 * [d3](https://d3js.org/) - To learn the basics of d3.
 * [Bubble chart](https://observablehq.com/@d3/bubble-chart) - Example I used to render a basic bubble chart.

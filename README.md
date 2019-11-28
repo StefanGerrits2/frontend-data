@@ -105,7 +105,8 @@ Click [here](https://github.com/StefanGerrits2/frontend-data/wiki/2.5-SparQL-que
 
 ## Credits
 
-* Credits here
+* [Wessel Smit](https://github.com/WesselSmit/frontend-data/) - for showing me how to run the query with the termmaster as parameter.
+
 
 ## Check it out!
 

@@ -23,7 +23,8 @@ This is an interactive visualisation made with d3 for Nationeel museum voor were
 
 The update pattern checks how many DOM elements already exist, and how many there are needed based on the data that is given. DOM elements can be deleted, added or updated.
 
-Check [Mijn update pattern](https://github.com/StefanGerrits2/frontend-data/wiki/2.3-Mijn-update-pattern) for more information what an update pattern is and how I implemented it in my code.
+* Check [Mijn update pattern](https://github.com/StefanGerrits2/frontend-data/wiki/2.3-Mijn-update-pattern) for more information what an update pattern is and how I implemented it in my code.
+* Check [Experimenteren met een update pattern](https://github.com/StefanGerrits2/frontend-data/wiki/2.2-Experimenteren-met-een-update-pattern) to follow my update pattern process and experiments.
 
 I used [this tutorial](https://www.youtube.com/watch?v=IyIAR65G-GQ&t=3237s) made by Curran Kelleher to understand the basics.
 
@@ -101,7 +102,7 @@ Click [here](https://github.com/StefanGerrits2/frontend-data/wiki/2.5-SparQL-que
 * [API](https://data.netwerkdigitaalerfgoed.nl/) - To get all the data I needed.
 * [d3](https://d3js.org/) - To learn the basics of d3.
 * [Bubble chart](https://observablehq.com/@d3/bubble-chart) - Example I used to render a basic bubble chart.
-* [d3 update pattern](https://www.youtube.com/watch?v=IyIAR65G-GQ&t=3237s) - To understand the basics how the update pattern works
+* [d3 update pattern](https://www.youtube.com/watch?v=IyIAR65G-GQ&t=3237s) - To understand the basics how the update pattern works.
 
 ## Credits
 

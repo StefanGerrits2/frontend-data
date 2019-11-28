@@ -12,7 +12,7 @@ body {
 }
 
 .filter__title {
-    margin-left: 3.5em;
+    margin-left: 2.25em;
     margin-top: 1em;
 }
 
@@ -34,6 +34,14 @@ circle {
 circle:hover {
     stroke: black;
     stroke-width: 3;
+}
+
+/* Information */
+.information {
+    position: absolute;
+    right: 5em;
+    font-size: 13px;
+    width: 20em;
 }
 
 /* Legend */
@@ -77,10 +85,11 @@ circle:hover {
 .radio-buttons__container input[type='radio']:checked + label {
     background: rgb(17, 99, 0);
     border: 2px solid rgb(17, 99, 0);
+    border-radius: 50px;
 }
 
 .radio-buttons__container input[type='radio']:checked + label:hover {
-    border-radius: 10px;
+    border-radius: 50px;
 }/* Source code ends here */
 
 /* Reset button */

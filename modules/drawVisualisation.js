@@ -26,10 +26,10 @@ export default function drawVisualisation(data) {
         const root = pack(data);
         
         // Create Groups for circles and text
-        const container = svg.selectAll('.circle__container');
+        const circleContainer = svg.selectAll('.circle__container');
                 
         // Give data to all groups 
-        const groups = container.selectAll('g')
+        const groups = circleContainer.selectAll('g')
             .data(root.leaves());
 
         // Assign groups if there are not enough DOM elements available
@@ -66,11 +66,11 @@ export default function drawVisualisation(data) {
             .attr('font-size', '0')
             .attr('x', 0)
             .attr('y', 0)
+            .attr('fill', 'white')
             // Enter and update
             .merge(groups.select('text'))
             .transition().duration(1000)
             .text(d => d.data.categoryName)
-            .attr('fill', 'white')
             .attr('font-size', '9')
             .attr('display', d => {return d.r <= 25 ? 'none' : 'flex';});
 

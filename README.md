@@ -19,17 +19,25 @@ This is an interactive visualisation made with d3 for Nationeel museum voor were
 * Being able to reset your current filter
 * Being able to hover over a bubble to see more information
 
-## d3 updating pattern
-Info about updating data here
+### d3 updating pattern
 
-* I used [this tutorial](https://www.youtube.com/watch?v=IyIAR65G-GQ&t=3237s) to understand the basics
+The update pattern checks how many DOM elements already exist, and how many there are needed based on the data that is given. DOM elements can be deleted, added or updated.
 
-## d3 experiments
-Info about my experiments here
+Check [Mijn update pattern](https://github.com/StefanGerrits2/frontend-data/wiki/2.3-Mijn-update-pattern) for more information what an update pattern is and how I implemented it in my code.
 
-## Data cleaning pattern
+I used [this tutorial](https://www.youtube.com/watch?v=IyIAR65G-GQ&t=3237s) made by Curran Kelleher to understand the basics.
 
-Info about data cleaning here
+### d3 experiments
+I experimented some interactions, here's a list:
+* Zoom and drag
+* Basic legend
+* Filtering with legend
+
+Check [Experimenten met d3 interactie](https://github.com/StefanGerrits2/frontend-data/wiki/2.1-Experimenteren-met-d3-interactie) for more information.
+
+### Data cleaning pattern
+
+Check [Data cleaning pattern](https://github.com/StefanGerrits2/frontend-data/wiki/2.6-Data-cleaning-pattern) for more information how I cleaned my data so it's ready for d3.
 
 ## Installation
 
@@ -58,7 +66,7 @@ I collect these data:
 * Category value (amount of objects in each category)
 * Upper category (subcategories can be part of a upper category)
 
-Click [here](https://github.com/StefanGerrits2/frontend-data/wiki/2.4-SparQL-Query) for further explanation how my query works.
+Click [here](https://github.com/StefanGerrits2/frontend-data/wiki/2.5-SparQL-query) for further explanation how my query works.
 
 <details>
 <summary>Click here to see a quick example of a query I have written in SPARQL.</summary>

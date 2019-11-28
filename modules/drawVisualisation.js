@@ -40,7 +40,7 @@ export default function drawVisualisation(data) {
             // Enter and update
             .merge(groups)
             .attr('transform', d => `translate(${d.x + 1},${d.y + 1})`);
-
+        
         // Add circles
         groupsEnter
             // Set values which won't change when updated

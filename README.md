@@ -10,7 +10,7 @@
 
 This is an interactive visualisation made with d3 for Nationeel museum voor wereldculturen. I visualised categories with their subcategories so the viewer can explore their collection. How bigger the bubble, the more objects there are in that category. You can also hover over a bubble for more information.
 
-* [Click here](https://github.com/StefanGerrits2/functional-programming/wiki/1.3-Gekozen-concept) to check out my concept in detail.
+* [Click here](https://github.com/StefanGerrits2/frontend-data/wiki/1.2-Concept) to check out my concept in detail.
 
 ## Features
 
@@ -18,6 +18,12 @@ This is an interactive visualisation made with d3 for Nationeel museum voor were
 * Being able to filter on subcategories in every category
 * Being able to reset your current filter
 * Being able to hover over a bubble to see more information
+
+### Bubble chart
+
+* [This](https://observablehq.com/@d3/bubble-chart) is the example I used to render a basic bubble chart.
+
+Check my wiki page: [d3 bubble chart](https://github.com/StefanGerrits2/frontend-data/wiki/2.4-d3-bubble-chart) for more information what I used from the example, and what I added myself.
 
 ### d3 updating pattern
 
@@ -38,7 +44,7 @@ Check [Experimenten met d3 interactie](https://github.com/StefanGerrits2/fronten
 
 ### Data cleaning pattern
 
-Check [Data cleaning pattern](https://github.com/StefanGerrits2/frontend-data/wiki/2.6-Data-cleaning-pattern) for more information how I cleaned my data so it's ready for d3.
+Check [Data cleaning pattern](https://github.com/StefanGerrits2/frontend-data/wiki/2.7-Data-cleaning-pattern) for information how I cleaned my data so it's ready for d3.
 
 ## Installation
 
@@ -67,7 +73,7 @@ I collect these data:
 * Category value (amount of objects in each category)
 * Upper category (subcategories can be part of a upper category)
 
-Click [here](https://github.com/StefanGerrits2/frontend-data/wiki/2.5-SparQL-query) for further explanation how my query works.
+Click [here](https://github.com/StefanGerrits2/frontend-data/wiki/2.6-SparQL-query) for further explanation how my query works.
 
 <details>
 <summary>Click here to see a quick example of a query I have written in SPARQL.</summary>
